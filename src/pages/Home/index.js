@@ -1,12 +1,15 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-// import { Container } from './styles';
+import Header from '../../components/Header';
+
+import { Container } from './styles';
 
 const Home = () => {
-  return <View>
+  return <Container>
+    <Header />
     <Text>Hello world</Text>
-  </View>;
+  </Container>;
 };
 
 export default Home;
