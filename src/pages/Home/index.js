@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {TouchableOpacity, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 
 import Header from '../../components/Header';
 import ItemOrder from '../../components/ItemOrder';
-
 import ButtonPlus from '../../components/ButtonPlus';
+
+import PushNotification from '../../utils/sendNotification';
 
 import {Container} from './styles';
 
@@ -42,6 +43,11 @@ const Home = () => {
     };
 
     getOrders();
+  }, []);
+
+  useEffect(() => {
+    console.log('Chamouuu Notification');
+    PushNotification();
   }, []);
 
   const renderItem = ({item}) => {

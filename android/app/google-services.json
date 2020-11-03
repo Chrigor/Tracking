@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "599438791130",
+    "firebase_url": "https://notifications-32569.firebaseio.com",
+    "project_id": "notifications-32569",
+    "storage_bucket": "notifications-32569.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599438791130:android:dd72d133d03ebb72b470e3",
+        "android_client_info": {
+          "package_name": "com.tracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599438791130-u9crmh58ikmfou9v9fg6n5l8ejlfentb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_mtycoby23Y4_5ofyJk0O5nORKGlfCks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599438791130-u9crmh58ikmfou9v9fg6n5l8ejlfentb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
