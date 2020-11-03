@@ -46,8 +46,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log('Chamouuu Notification');
-    PushNotification();
+    PushNotification('A caminho!', 'Suas encomendas estão a caminho.');
   }, []);
 
   const renderItem = ({item}) => {

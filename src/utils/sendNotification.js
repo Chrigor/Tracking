@@ -1,6 +1,6 @@
 import PushNotification from 'react-native-push-notification';
 
-export default function () {
+export default function (title = 'Default', message = 'Message default') {
   console.log('TOMA NOTIFICAION');
 
   PushNotification.createChannel(
@@ -15,7 +15,7 @@ export default function () {
 
   PushNotification.localNotification({
     channelId: '1',
-    title: 'My Notification Title', // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
-    message: 'My Notification Message', // (required)
+    title,
+    message,
   });
 }
