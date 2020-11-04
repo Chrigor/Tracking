@@ -7,7 +7,7 @@ export default function (title = 'Default', message = 'Message default') {
     {
       channelId: '1',
       channelName: '1',
-      importance: 4,
+      importance: 2,
       vibrate: true,
     },
     (created) => console.log(`createChannel returned '${created}'`), // (optional) callback returns whether the channel was created, false means it already existed.
