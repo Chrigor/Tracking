@@ -7,43 +7,16 @@ import ButtonPlus from '../../components/ButtonPlus';
 
 import PushNotification from '../../utils/sendNotification';
 
+import {useSelector} from 'react-redux';
+import Loading from '../../components/Loading';
+
 import {Container} from './styles';
 
 const Home = () => {
-  const [orders, setOrders] = useState([]);
+  const orders = useSelector((state) => state.registerProduct.data);
+  const loading = useSelector((state) => state.registerProduct.loading);
 
-  useEffect(() => {
-    const getOrders = async () => {
-      setOrders([
-        {
-          codigo: 'LX002249507BR',
-          servico: 'PAC - Encomenda Econômica',
-          host: 'tk',
-          quantidade: 0,
-          eventos: [],
-          time: 1.702,
-        },
-        {
-          codigo: 'LX002249507BT',
-          servico: 'PAC - Encomenda Econômica',
-          host: 'tk',
-          quantidade: 0,
-          eventos: [],
-          time: 1.702,
-        },
-        {
-          codigo: 'LX002249507BA',
-          servico: 'PAC - Encomenda Econômica',
-          host: 'tk',
-          quantidade: 0,
-          eventos: [],
-          time: 1.702,
-        },
-      ]);
-    };
-
-    getOrders();
-  }, []);
+  console.log(orders);
 
   useEffect(() => {
     PushNotification('A caminho!', 'Suas encomendas estão a caminho.');
@@ -56,6 +29,8 @@ const Home = () => {
   return (
     <Container>
       <Header haveNotifications={true} />
+
+      {loading && <Loading />}
 
       <FlatList
         data={orders}

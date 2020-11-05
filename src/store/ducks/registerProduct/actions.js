@@ -8,8 +8,9 @@ export const loadRequest = (code = '') => ({
   },
 });
 
-export const loadSuccess = () => ({
+export const loadSuccess = (object) => ({
   type: Types.LOAD_SUCCESS,
+  payload: object,
 });
 
 export const loadFailure = () => ({
