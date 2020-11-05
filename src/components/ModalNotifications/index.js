@@ -53,7 +53,7 @@ const ModalNotifications = (props) => {
         <ButtonSwipe
           touchSoundDisabled={true}
           onPressIn={() => modalRef.close()}>
-          <Icon name="grip-lines" size={20} />
+          <Icon name="grip-lines" size={25} />
         </ButtonSwipe>
       </ContainerSwipe>
     </Modal>

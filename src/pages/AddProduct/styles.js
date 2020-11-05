@@ -14,6 +14,10 @@ export const ContainerInput = styled.View`
   margin-top: 8px;
 `;
 
+export const ContainerGroupInput = styled.View`
+  margin: 8px 0px;
+`;
+
 export const Label = styled.Text`
   font-size: 14px;
 `;

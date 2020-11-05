@@ -18,4 +18,7 @@ export const ContainerSwipe = styled.View`
 
 export const ButtonSwipe = styled.TouchableWithoutFeedback`
   padding: 2px 8px;
+  width: 40px;
+  border-width: 1px;
+  border-color: #eee;
 `;

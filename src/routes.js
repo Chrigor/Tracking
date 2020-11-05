@@ -16,7 +16,7 @@ function MyStack() {
       <Stack.Screen
         name="AddProduct"
         component={AddProduct}
-        options={{headerShown: false}}
+        options={{headerShown: true, title: 'Adicionar Objeto'}}
       />
     </Stack.Navigator>
   );

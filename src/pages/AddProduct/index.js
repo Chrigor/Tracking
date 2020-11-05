@@ -1,17 +1,28 @@
 import React from 'react';
-import {Container, ContainerInput, Label, Input} from './styles';
+import {
+  Container,
+  ContainerInput,
+  ContainerGroupInput,
+  Label,
+  Input,
+} from './styles';
 
 const AddProduct = () => {
   return (
     <Container>
-      <ContainerInput>
-        <Label>Nome do Produto: </Label>
-        <Input />
-      </ContainerInput>
-      <ContainerInput>
+      <ContainerGroupInput>
+        <Label>Nome do Objeto: </Label>
+        <ContainerInput>
+          <Input />
+        </ContainerInput>
+      </ContainerGroupInput>
+
+      <ContainerGroupInput>
         <Label>Código de Rastreio:</Label>
-        <Input />
-      </ContainerInput>
+        <ContainerInput>
+          <Input />
+        </ContainerInput>
+      </ContainerGroupInput>
     </Container>
   );
 };

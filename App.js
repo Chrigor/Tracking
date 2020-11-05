@@ -6,18 +6,26 @@ import Routes from './src/routes';
 import StatusBar from './src/components/StatusBar';
 
 import NotificationsConfigure from './src/config/Notifications';
-import sendNotification from './src/utils/sendNotification';
+
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import store from './src/store';
+
+console.disableYellowBox = true;
 
 export default function App() {
   useEffect(() => {
     NotificationsConfigure();
-    sendNotification();
   }, []);
 
   return (
-    <NavigationContainer>
-      <StatusBar />
-      <Routes />
-    </NavigationContainer>
+    <Provider store={store.store}>
+      <PersistGate loading={null} persistor={store.persistor}>
+        <NavigationContainer>
+          <StatusBar />
+          <Routes />
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
   );
 }
