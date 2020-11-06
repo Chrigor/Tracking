@@ -9,6 +9,8 @@ import {
   ImageItem,
 } from './styles';
 
+import convertDateToString from '../../utils/convertDateToString';
+
 const ItemOrder = ({item}) => {
   const [active, setActive] = useState(false);
 
@@ -20,7 +22,12 @@ const ItemOrder = ({item}) => {
           <TitleItem>{item.codigo}</TitleItem>
           <DescriptionItem>{item.servico}</DescriptionItem>
 
-          {active && <TitleItem>Ativo</TitleItem>}
+          {active && (
+            <TitleItem>
+              última atualização:{' '}
+              {convertDateToString(new Date(item.ultimo).toLocaleDateString())}
+            </TitleItem>
+          )}
         </ContainerInfoItem>
 
         <TouchableOpacity>

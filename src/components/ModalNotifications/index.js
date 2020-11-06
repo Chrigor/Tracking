@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-native-modalbox';
 import {
   View,
@@ -8,14 +8,41 @@ import {
   TouchableWithoutFeedback,
   ActivityIndicator,
 } from 'react-native';
-// import {useDispatch, useSelector} from 'react-redux';
 
-import {Container, ContainerSwipe, ButtonSwipe} from './styles';
+import {useSelector} from 'react-redux';
+
+import {
+  Container,
+  ContainerSwipe,
+  ContainerItem,
+  ButtonSwipe,
+  Title,
+} from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
+import brDateToEngDate from '../../utils/convertDate';
 
 let modalRef = null;
 
 const ModalNotifications = (props) => {
+  const orders = useSelector((state) => state.registerProduct.data);
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    orders.forEach((elemento) => {
+      elemento.eventos.forEach((eventos) => {
+        eventos.codigo = elemento.codigo;
+      });
+    });
+
+    const notificationsNew = orders.map((elemento) => elemento.eventos).flat(1);
+
+    console.log('Notifications');
+    console.log(notificationsNew);
+
+    setNotifications(notificationsNew);
+  }, []);
+
   return (
     <Modal
       ref={(modal) => (modalRef = modal)}
@@ -26,28 +53,26 @@ const ModalNotifications = (props) => {
       swipeArea={0}
       backdropPressToClose={true}
       isOpen={props.isOpen}>
-      <Container />
-      {/* {true && (
-        <View style={styles.modalContainer}>
-          <FlatList
-            contentContainerStyle={styles.flatList}
-            keyExtractor={(notification) => notification.value[1]}
-            data={sortNotificationsByDate(props.notifications)}
-            renderItem={({item: notification}) => (
-              <TouchableWithoutFeedback
-                onPress={() => handleDeleteNotification(notification.value[1])}>
-                <View style={styles.notificationContainer}>
-                  {decideImage(notification.value[9])}
-                  <View>
-                    <Text>{notification.value[4]}</Text>
-                    <Text>{notification.value[9]}</Text>
-                  </View>
+      <Container>
+        <FlatList
+          keyExtractor={(notification, indice) => indice}
+          data={notifications}
+          renderItem={({item: notification}) => {
+            // console.log('ITEM');
+            // console.log(notification);
+            return (
+              <ContainerItem>
+                <Title>{notification.codigo}</Title>
+                <View>
+                  <Title>{notification.status}</Title>
+                  <Title>{notification.data}</Title>
                 </View>
-              </TouchableWithoutFeedback>
-            )}
-          />
-        </View>
-      )} */}
+              </ContainerItem>
+            );
+          }}
+        />
+        {notifications.length <= 0 && <Text>Sem Notificações</Text>}
+      </Container>
 
       <ContainerSwipe>
         <ButtonSwipe
