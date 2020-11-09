@@ -8,13 +8,13 @@ import ButtonPlus from '../../components/ButtonPlus';
 import PushNotification from '../../utils/sendNotification';
 
 import {useSelector} from 'react-redux';
-import Loading from '../../components/Loading';
+// import Loading from '../../components/Loading';
 
 import {Container} from './styles';
 
 const Home = () => {
   const orders = useSelector((state) => state.registerProduct.data);
-  const loading = useSelector((state) => state.registerProduct.loading);
+  // const loading = useSelector((state) => state.registerProduct.loading);
 
   console.log(orders);
 
@@ -30,7 +30,7 @@ const Home = () => {
     <Container>
       <Header haveNotifications={true} />
 
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
 
       <FlatList
         data={orders}

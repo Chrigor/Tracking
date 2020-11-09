@@ -9,17 +9,23 @@ import {
   ImageItem,
 } from './styles';
 
+import {useNavigation} from '@react-navigation/native';
 import convertDateToString from '../../utils/convertDateToString';
 
 const ItemOrder = ({item}) => {
   const [active, setActive] = useState(false);
+  const navigation = useNavigation();
 
+  console.log('item');
+  console.log(item);
   return (
     <TouchableOpacity onPress={() => setActive(!active)}>
       <Container>
         <ImageItem />
         <ContainerInfoItem>
-          <TitleItem>{item.codigo}</TitleItem>
+          <TitleItem>
+            {item.name} - {item.codigo}
+          </TitleItem>
           <DescriptionItem>{item.servico}</DescriptionItem>
 
           {active && (
@@ -30,8 +36,13 @@ const ItemOrder = ({item}) => {
           )}
         </ContainerInfoItem>
 
-        <TouchableOpacity>
-          <Icon name="arrow-forward-ios" size={20} color="black" />
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('DetailsProduct', {
+              item,
+            })
+          }>
+          <Icon name="arrow-forward-ios" size={22} color="black" />
         </TouchableOpacity>
       </Container>
     </TouchableOpacity>

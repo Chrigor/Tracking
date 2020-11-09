@@ -1,11 +1,9 @@
 import Types from './types';
 
 // primeiro parametro é o type do action e o segundo um pay load se tiver
-export const loadRequest = (code = '') => ({
+export const loadRequest = (payload) => ({
   type: Types.LOAD_REQUEST,
-  payload: {
-    code,
-  },
+  payload,
 });
 
 export const loadSuccess = (object) => ({

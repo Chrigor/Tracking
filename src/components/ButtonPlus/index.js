@@ -11,18 +11,18 @@ const ButtonPlus = () => {
   const todoEstado = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log('ESTADO');
-    console.log(todoEstado);
-  }, [todoEstado]);
+  // useEffect(() => {
+  //   console.log('ESTADO');
+  //   console.log(todoEstado);
+  // }, [todoEstado]);
 
   return (
     <>
       <Container>
         <TouchableOpacity
           onPress={() => {
-            dispatch(loadRequest('LB894348160SE'));
-            // navigation.navigate('AddProduct');
+            // dispatch(loadRequest('LB894348160SE'));
+            navigation.navigate('AddProduct');
           }}>
           <Icon name="plus" size={44} color="#FFF" />
         </TouchableOpacity>

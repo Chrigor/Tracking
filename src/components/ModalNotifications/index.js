@@ -20,7 +20,7 @@ import {
 } from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import brDateToEngDate from '../../utils/convertDate';
+// import brDateToEngDate from '../../utils/convertDate';
 
 let modalRef = null;
 
@@ -30,7 +30,7 @@ const ModalNotifications = (props) => {
 
   useEffect(() => {
     orders.forEach((elemento) => {
-      elemento.eventos.forEach((eventos) => {
+      elemento.eventos?.forEach((eventos) => {
         eventos.codigo = elemento.codigo;
       });
     });
@@ -58,13 +58,15 @@ const ModalNotifications = (props) => {
           keyExtractor={(notification, indice) => indice}
           data={notifications}
           renderItem={({item: notification}) => {
-            // console.log('ITEM');
-            // console.log(notification);
+            console.log('ITEM');
+            console.log(notification);
             return (
               <ContainerItem>
-                <Title>{notification.codigo}</Title>
+                <Title />
                 <View>
-                  <Title>{notification.status}</Title>
+                  <Title>
+                    {notification.codigo} - {notification.status}
+                  </Title>
                   <Title>{notification.data}</Title>
                 </View>
               </ContainerItem>

@@ -37,6 +37,6 @@ export const ContainerItem = styled.View`
   padding: 8px 16px;
   margin-bottom: 8px;
 
-  border-bottom-width: 1px;
+  border-top-width: 1px;
   border-color: #eee;
 `;
