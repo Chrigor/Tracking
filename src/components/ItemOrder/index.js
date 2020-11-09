@@ -23,14 +23,12 @@ const ItemOrder = ({item}) => {
       <Container>
         <ImageItem />
         <ContainerInfoItem>
-          <TitleItem>
-            {item.name} - {item.codigo}
-          </TitleItem>
+          <TitleItem>{item.name}</TitleItem>
           <DescriptionItem>{item.servico}</DescriptionItem>
 
           {active && (
             <TitleItem>
-              última atualização:{' '}
+              Última atualização:{' '}
               {convertDateToString(new Date(item.ultimo).toLocaleDateString())}
             </TitleItem>
           )}
