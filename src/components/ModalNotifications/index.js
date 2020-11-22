@@ -17,6 +17,7 @@ import {
   ContainerItem,
   ButtonSwipe,
   Title,
+  SubTitle,
 } from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -25,23 +26,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 let modalRef = null;
 
 const ModalNotifications = (props) => {
-  const orders = useSelector((state) => state.registerProduct.data);
-  const [notifications, setNotifications] = useState([]);
-
-  useEffect(() => {
-    orders.forEach((elemento) => {
-      elemento.eventos?.forEach((eventos) => {
-        eventos.codigo = elemento.codigo;
-      });
-    });
-
-    const notificationsNew = orders.map((elemento) => elemento.eventos).flat(1);
-
-    console.log('Notifications');
-    console.log(notificationsNew);
-
-    setNotifications(notificationsNew);
-  }, []);
+  const notifications = useSelector((state) => state.getNotifications.data);
 
   return (
     <Modal
@@ -58,22 +43,22 @@ const ModalNotifications = (props) => {
           keyExtractor={(notification, indice) => indice}
           data={notifications}
           renderItem={({item: notification}) => {
-            console.log('ITEM');
-            console.log(notification);
             return (
               <ContainerItem>
                 <Title />
                 <View>
-                  <Title>
-                    {notification.codigo} - {notification.status}
-                  </Title>
-                  <Title>{notification.data}</Title>
+                  <Title>{notification.nameProduct}</Title>
+                  <SubTitle>
+                    {' '}
+                    {notification.status} no dia {notification.data} ás{' '}
+                    {notification.hora}
+                  </SubTitle>
                 </View>
               </ContainerItem>
             );
           }}
         />
-        {notifications.length <= 0 && <Text>Sem Notificações</Text>}
+        {notifications.length <= 0 && <Title center>Sem Notificações</Title>}
       </Container>
 
       <ContainerSwipe>

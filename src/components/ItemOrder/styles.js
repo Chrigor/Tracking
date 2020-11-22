@@ -22,7 +22,7 @@ export const ImageItem = styled.View`
 `;
 
 export const TitleItem = styled.Text`
-  font-size: 16px;
+  font-size: ${(props) => (props.fontSize ? props.fontSize + 'px' : '16px')};
   font-weight: bold;
   color: black;
 `;

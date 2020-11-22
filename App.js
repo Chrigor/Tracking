@@ -22,7 +22,6 @@ import {
 } from '@react-native-firebase/admob';
 
 InterstitialAd.createForAdRequest(TestIds.INTERSTITIAL);
-
 RewardedAd.createForAdRequest(TestIds.REWARDED);
 
 console.disableYellowBox = true;

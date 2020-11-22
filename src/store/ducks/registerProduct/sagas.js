@@ -4,6 +4,7 @@ import {call, put, select} from 'redux-saga/effects';
 import api from '../../../services/api';
 
 import {loadFailure, loadSuccess} from './actions';
+import {loadRequest} from '../getNotifications/actions';
 
 import {navigate} from '../../../services/navigate';
 
@@ -16,6 +17,7 @@ export function* registerProduct({payload}) {
 
     yield put(loadSuccess({...data, ...payload}));
     Alert.alert('Sucesso', 'Objeto adicionado');
+    yield put(loadRequest());
 
     navigate('Home');
   } catch (err) {

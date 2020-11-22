@@ -25,7 +25,15 @@ export const ButtonSwipe = styled.TouchableWithoutFeedback`
 
 export const Title = styled.Text`
   font-size: 16px;
-  color: red;
+  align-self: ${(props) => (props.center ? 'center' : 'auto')};
+  margin: 16px 0px 8px 0px;
+  font-weight: 600;
+`;
+
+export const SubTitle = styled.Text`
+  font-size: 16px;
+  align-self: ${(props) => (props.center ? 'center' : 'flex-start')};
+  color: gray;
 `;
 
 export const ContainerItem = styled.View`

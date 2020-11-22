@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
@@ -16,10 +16,12 @@ const ItemOrder = ({item}) => {
   const [active, setActive] = useState(false);
   const navigation = useNavigation();
 
-  console.log('item');
-  console.log(item);
+  // console.log('item');
+  // console.log(item);
   return (
-    <TouchableOpacity onPress={() => setActive(!active)}>
+    <TouchableOpacity
+      onPress={() => setActive(!active)}
+      onLongPress={() => Alert.alert('Long')}>
       <Container>
         <ImageItem />
         <ContainerInfoItem>
@@ -27,7 +29,7 @@ const ItemOrder = ({item}) => {
           <DescriptionItem>{item.servico}</DescriptionItem>
 
           {active && (
-            <TitleItem>
+            <TitleItem fontSize={13}>
               Última atualização:{' '}
               {convertDateToString(new Date(item.ultimo).toLocaleDateString())}
             </TitleItem>
