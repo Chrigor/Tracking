@@ -1,16 +1,24 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
 
-// import { Container } from './styles';
+import {Container, InputWithLabel, Label, Input} from './styles';
 
 const DetailsProduct = ({route}) => {
-  useEffect(() => {
-    const item = route.params;
-    // console.log('ITEM');
-    // console.log(item);
-  }, []);
+  const item = route.params.item;
 
-  return <View />;
+  console.log(item);
+
+  return (
+    <Container>
+      <InputWithLabel>
+        <Label>Nome</Label>
+        <Input value={item.name} />
+      </InputWithLabel>
+      <InputWithLabel>
+        <Label>Codigo</Label>
+        <Input value={item.codigo} />
+      </InputWithLabel>
+    </Container>
+  );
 };
 
 export default DetailsProduct;
